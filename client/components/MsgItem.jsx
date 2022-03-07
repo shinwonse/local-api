@@ -6,6 +6,7 @@ const MsgItem = ({
   timestamp,
   text,
   onUpdate,
+  onDelete,
   isEditing,
   startEdit,
 }) => (
@@ -25,13 +26,14 @@ const MsgItem = ({
     </h3>
     {isEditing ? (
       <>
-        <MsgInput mutate={onUpdate} id={id} />
+        <MsgInput mutate={onUpdate} id={id} text={text} />
       </>
     ) : (
       text
     )}
     <div className="messages__buttons">
       <button onClick={startEdit}>수정</button>
+      <button onClick={onDelete}>삭제</button>
     </div>
   </li>
 );
